@@ -21,11 +21,11 @@ import jakarta.persistence.Table;
 
 /**
  *
- * @author macon
+ * @author maconx`x`
  */
 @Entity
 @Table(name = "employees")
-public class Employee  {
+public class Employee{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

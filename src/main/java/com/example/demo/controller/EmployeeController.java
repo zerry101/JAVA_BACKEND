@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.example.controller;
+package com.example.demo.controller;
 
 /**
  *
@@ -23,6 +23,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {
+        
+//    System.OutOfMemoryError.println("")
     
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -38,6 +40,8 @@ public class EmployeeController {
         return employeeRepository.findAll();
         
     }
+    
+    
     
 //    @Autowired
 //    private EmployeeRepository employeeRepository;
