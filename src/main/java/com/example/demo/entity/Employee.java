@@ -2,13 +2,17 @@
 package com.example.demo.entity;
 
 //import java.io.Serializable;
+//import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonArrayFormatVisitor;
+//import com.fasterxml.jackson.databind.util.JSONPObject;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.util.ArrayList;
 import java.util.List;
+//import jdk.jfr.Description;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -60,16 +64,15 @@ public class Employee {
     @Column(name = "shippedTo")
     private String shippedTo;
     
-//    @Column(name = "productData")
-//    private Object[]         productData;
-//    
+    @Column(name = "productData")
+    private   String productData;
+    
     
 //    @Column(name = "first_name")
 //    private String firstname;
 //    @Column(name = "email_id")
 //    private String emailid;
-    public Employee() {
-    }
+   
 
 //    public Employee(String , String firstname, String emailid) {
 //        super();
@@ -79,7 +82,7 @@ public class Employee {
 //        this.vehicleNumber=vehicleNumber,
 //        
 
-    public Employee(long id, String name, String address, String transportantionMode, String vehicleNumber, String dateOfSupply, String placeOfSupply, String shippedTo, Object[] productData) {
+    public Employee(long id, String name, String address, String transportantionMode, String vehicleNumber, String dateOfSupply, String placeOfSupply, String shippedTo, String productData) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -88,7 +91,7 @@ public class Employee {
         this.dateOfSupply = dateOfSupply;
         this.placeOfSupply = placeOfSupply;
         this.shippedTo = shippedTo;
-//        this.productData = productData;
+        this.productData = productData;
     }
 
 //    }
@@ -120,9 +123,9 @@ public class Employee {
         this.shippedTo = shippedTo;
     }
     
-//    public void setProductData(Object[] productData) {
-//        this.productData = productData;
-//    }
+    public void setProductData(String productData) {
+        this.productData = productData;
+    }
 
     public String getTransportantionMode() {
         
@@ -146,9 +149,9 @@ public class Employee {
         return shippedTo;
     }
 
-//    public  Object[] getProductData() {
-//        return productData; 
-//    }
+    public  String getProductData() {
+        return productData; 
+    }
 
     public void setId(long id) {
         this.id = id;
@@ -182,3 +185,30 @@ public class Employee {
 //        return emailid;
 //    }
 }
+
+
+//class productInfo{
+//    public String Description;
+//
+//    public Number HSN;
+//    
+//    public  String Quantity;
+//    
+//    public Number Rate;
+//    
+//    public String Per;
+//    
+//    public Number  Amount; 
+//
+//    public productInfo(Number  Amount,String Description,Number HSN,String Quantity,Number Rate,String Per) {
+//        this.Amount=Amount;
+//        this.Description=Description;
+//        this.HSN=HSN;
+//        this.Quantity=Quantity;
+//        this.Rate=Rate;
+//        this.Per=Per;
+//    }
+
+    
+    
+     
