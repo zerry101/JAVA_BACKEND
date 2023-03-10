@@ -64,7 +64,7 @@ public class Employee {
     @Column(name = "shippedTo")
     private String shippedTo;
     
-    @Column(name = "productData")
+    @Column(name = "productData",columnDefinition = "TEXT")
     private   String productData;
     
     
@@ -72,7 +72,8 @@ public class Employee {
 //    private String firstname;
 //    @Column(name = "email_id")
 //    private String emailid;
-   
+    public Employee() {
+    }
 
 //    public Employee(String , String firstname, String emailid) {
 //        super();
