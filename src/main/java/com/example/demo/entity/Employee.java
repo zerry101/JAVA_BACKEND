@@ -21,11 +21,9 @@ import java.util.List;
 /**
  *
  * @author maconx`x`
- * 
- * 
+ *
+ *
  */
-
-
 //interface productData{
 //   String HSNString
 //   String DescString
@@ -33,8 +31,6 @@ import java.util.List;
 //          
 //
 //}
-
-
 @Entity
 @Table(name = "employees")
 public class Employee {
@@ -46,8 +42,11 @@ public class Employee {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "address")
+    @Column(name = "address", columnDefinition = "TEXT")
     private String address;
+
+    @Column(name = "contactNo")
+    private String contactNo;
 
     @Column(name = "transportantionMode")
     private String transportantionMode;
@@ -58,16 +57,15 @@ public class Employee {
     @Column(name = "dateOfSupply")
     private String dateOfSupply;
 
-    @Column(name = "placeOfSupply")
+    @Column(name = "placeOfSupply", columnDefinition = "TEXT")
     private String placeOfSupply;
-    
-    @Column(name = "shippedTo")
+
+    @Column(name = "shippedTo", columnDefinition = "TEXT")
     private String shippedTo;
-    
-    @Column(name = "productData",columnDefinition = "TEXT")
-    private   String productData;
-    
-    
+
+    @Column(name = "productData", columnDefinition = "TEXT")
+    private String productData;
+
 //    @Column(name = "first_name")
 //    private String firstname;
 //    @Column(name = "email_id")
@@ -82,11 +80,11 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-
     public Employee(long id, String name, String address, String transportantionMode, String vehicleNumber, String dateOfSupply, String placeOfSupply, String shippedTo, String productData) {
         this.id = id;
         this.name = name;
         this.address = address;
+
         this.transportantionMode = transportantionMode;
         this.vehicleNumber = vehicleNumber;
         this.dateOfSupply = dateOfSupply;
@@ -108,6 +106,10 @@ public class Employee {
         this.transportantionMode = transportantionMode;
     }
 
+    public void setContactNo(String contactNo) {
+        this.contactNo = contactNo;
+    }
+
     public void setVehicleNumber(String vehicleNumber) {
         this.vehicleNumber = vehicleNumber;
     }
@@ -123,15 +125,19 @@ public class Employee {
     public void setShippedTo(String shippedTo) {
         this.shippedTo = shippedTo;
     }
-    
+
     public void setProductData(String productData) {
         this.productData = productData;
     }
 
     public String getTransportantionMode() {
-        
+
         return transportantionMode;
-        
+
+    }
+
+    public String getContactNo() {
+        return contactNo;
     }
 
     public String getVehicleNumber() {
@@ -150,8 +156,8 @@ public class Employee {
         return shippedTo;
     }
 
-    public  String getProductData() {
-        return productData; 
+    public String getProductData() {
+        return productData;
     }
 
     public void setId(long id) {
@@ -176,8 +182,6 @@ public class Employee {
     public String getName() {
         return name;
     }
-    
-    
 
 //    public String getFirstname() {
 //        return firstname;
@@ -186,7 +190,6 @@ public class Employee {
 //        return emailid;
 //    }
 }
-
 
 //class productInfo{
 //    public String Description;
@@ -210,6 +213,3 @@ public class Employee {
 //        this.Per=Per;
 //    }
 
-    
-    
-     
