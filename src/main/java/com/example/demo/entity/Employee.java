@@ -10,9 +10,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.ArrayList;
-import java.util.List;
-//import jdk.jfr.Description;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -39,32 +36,35 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "Name")
+    private String Name;
 
-    @Column(name = "address", columnDefinition = "TEXT")
-    private String address;
+    @Column(name = "Address", columnDefinition = "TEXT")
+    private String Address;
 
-    @Column(name = "contactNo")
-    private String contactNo;
+    @Column(name = "ContactNo")
+    private String ContactNo;
 
-    @Column(name = "transportantionMode")
-    private String transportantionMode;
+    @Column(name = "TransportationMode")
+    private String TransportationMode;
 
-    @Column(name = "vehicleNumber")
-    private String vehicleNumber;
+    @Column(name = "VehicleNumber")
+    private String VehicleNumber;
 
-    @Column(name = "dateOfSupply")
-    private String dateOfSupply;
+    @Column(name = "DateOfSupply")
+    private String DateOfSupply;
 
-    @Column(name = "placeOfSupply", columnDefinition = "TEXT")
-    private String placeOfSupply;
+    @Column(name = "PlaceOfSupply", columnDefinition = "TEXT")
+    private String PlaceOfSupply;
 
-    @Column(name = "shippedTo", columnDefinition = "TEXT")
-    private String shippedTo;
+    @Column(name = "ShippedTo", columnDefinition = "TEXT")
+    private String ShippedTo;
 
     @Column(name = "productData", columnDefinition = "TEXT")
     private String productData;
+
+    @Column(name = "GrandTotal")
+    private String GrandTotal;
 
 //    @Column(name = "first_name")
 //    private String firstname;
@@ -80,80 +80,89 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-    public Employee(long id, String name, String address, String transportantionMode, String vehicleNumber, String dateOfSupply, String placeOfSupply, String shippedTo, String productData) {
+    public Employee(long id, String Name, String Address, String ContactNo, String TransportationMode, String VehicleNumber, String DateOfSupply, String PlaceOfSupply, String ShippedTo, String productData,String GrandTotal) {
         this.id = id;
-        this.name = name;
-        this.address = address;
-
-        this.transportantionMode = transportantionMode;
-        this.vehicleNumber = vehicleNumber;
-        this.dateOfSupply = dateOfSupply;
-        this.placeOfSupply = placeOfSupply;
-        this.shippedTo = shippedTo;
+        this.Name = Name;
+        this.Address = Address;
+        this.ContactNo = ContactNo;
+        this.TransportationMode = TransportationMode;
+        this.VehicleNumber = VehicleNumber;
+        this.DateOfSupply = DateOfSupply;
+        this.PlaceOfSupply = PlaceOfSupply;
+        this.ShippedTo = ShippedTo;
         this.productData = productData;
+        this.GrandTotal=GrandTotal;
     }
 
 //    }
     public String getAddress() {
-        return address;
+        return Address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
 
-    public void setTransportantionMode(String transportantionMode) {
-        this.transportantionMode = transportantionMode;
+    public void setTransportationMode(String TransportationMode) {
+        this.TransportationMode = TransportationMode;
     }
 
-    public void setContactNo(String contactNo) {
-        this.contactNo = contactNo;
+    public void setContactNo(String ContactNo) {
+        this.ContactNo = ContactNo;
     }
 
-    public void setVehicleNumber(String vehicleNumber) {
-        this.vehicleNumber = vehicleNumber;
+    public void setVehicleNumber(String VehicleNumber) {
+        this.VehicleNumber = VehicleNumber;
     }
 
-    public void setDateOfSupply(String dateOfSupply) {
-        this.dateOfSupply = dateOfSupply;
+    public void setDateOfSupply(String DateOfSupply) {
+        this.DateOfSupply = DateOfSupply;
     }
 
-    public void setPlaceOfSupply(String placeOfSupply) {
-        this.placeOfSupply = placeOfSupply;
+    public void setPlaceOfSupply(String PlaceOfSupply) {
+        this.PlaceOfSupply = PlaceOfSupply;
     }
 
-    public void setShippedTo(String shippedTo) {
-        this.shippedTo = shippedTo;
+    public void setShippedTo(String ShippedTo) {
+        this.ShippedTo = ShippedTo;
     }
 
     public void setProductData(String productData) {
         this.productData = productData;
     }
 
-    public String getTransportantionMode() {
+    public String getTransportationMode() {
 
-        return transportantionMode;
+        return TransportationMode;
 
+    }
+
+    public void setGrandTotal(String GrandTotal) {
+        this.GrandTotal = GrandTotal;
+    }
+
+    public String getGrandTotal() {
+        return GrandTotal;
     }
 
     public String getContactNo() {
-        return contactNo;
+        return ContactNo;
     }
 
     public String getVehicleNumber() {
-        return vehicleNumber;
+        return VehicleNumber;
     }
 
     public String getDateOfSupply() {
-        return dateOfSupply;
+        return DateOfSupply;
     }
 
     public String getPlaceOfSupply() {
-        return placeOfSupply;
+        return PlaceOfSupply;
     }
 
     public String getShippedTo() {
-        return shippedTo;
+        return ShippedTo;
     }
 
     public String getProductData() {
@@ -164,15 +173,15 @@ public class Employee {
         this.id = id;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String Name) {
+        this.Name = Name;
     }
+
 //
 //    public void setFirstname(String firstname) {
 //        this.firstname = firstname;
 //    }
-
-//    public void setemailid(String emailid) {
+//    public void setemailid(String emailid) {  
 //        this.emailid = emailid;
 //    }
     public long getId() {
@@ -180,7 +189,7 @@ public class Employee {
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
 //    public String getFirstname() {
