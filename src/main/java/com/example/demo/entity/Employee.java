@@ -10,6 +10,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -51,8 +54,8 @@ public class Employee {
     @Column(name = "VehicleNumber")
     private String VehicleNumber;
 
-    @Column(name = "DateOfSupply")
-    private String DateOfSupply;
+    @Column(name = "dateOfSupply",columnDefinition = "TEXT")
+    private Date dateOfSupply;
 
     @Column(name = "PlaceOfSupply", columnDefinition = "TEXT")
     private String PlaceOfSupply;
@@ -80,14 +83,14 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-    public Employee(long id, String Name, String Address, String ContactNo, String TransportationMode, String VehicleNumber, String DateOfSupply, String PlaceOfSupply, String ShippedTo, String productData,String GrandTotal) {
+    public Employee(long id, String Name, String Address, String ContactNo, String TransportationMode, String VehicleNumber, Date dateOfSupply, String PlaceOfSupply, String ShippedTo, String productData,String GrandTotal) {
         this.id = id;
         this.Name = Name;
         this.Address = Address;
         this.ContactNo = ContactNo;
         this.TransportationMode = TransportationMode;
         this.VehicleNumber = VehicleNumber;
-        this.DateOfSupply = DateOfSupply;
+        this.dateOfSupply = dateOfSupply;
         this.PlaceOfSupply = PlaceOfSupply;
         this.ShippedTo = ShippedTo;
         this.productData = productData;
@@ -115,8 +118,8 @@ public class Employee {
         this.VehicleNumber = VehicleNumber;
     }
 
-    public void setDateOfSupply(String DateOfSupply) {
-        this.DateOfSupply = DateOfSupply;
+    public void setdateOfSupply(Date dateOfSupply) {
+        this.dateOfSupply = dateOfSupply;
     }
 
     public void setPlaceOfSupply(String PlaceOfSupply) {
@@ -153,8 +156,9 @@ public class Employee {
         return VehicleNumber;
     }
 
-    public String getDateOfSupply() {
-        return DateOfSupply;
+    public Date getdateOfSupply() {
+//        Date =new SimpleDateFormat("dd/mm/yyyy").parse(DateOfSupply);
+        return dateOfSupply;
     }
 
     public String getPlaceOfSupply() {

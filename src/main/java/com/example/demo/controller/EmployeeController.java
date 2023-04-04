@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,7 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 @RequestMapping("/api/v1/")
-public class EmployeeController  {
+public class EmployeeController {
 
 //    System.OutOfMemoryError.println("")
     @Autowired
@@ -43,17 +44,17 @@ public class EmployeeController  {
      * @return
      */
     @GetMapping("/employees")
-    public Page<Employee> employeesPageable(@RequestParam(value = "pageNumber",defaultValue = "1",required = false) Integer pageNumber,
-           @RequestParam(value = "pageSize",defaultValue = "10",required = false) Integer pageSize   ) {
-        
-        Pageable pageable=PageRequest.of(pageNumber, pageSize);
+    public Page<Employee> employeesPageable(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
+            @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "dateOfSupply");
+
+        Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 //        Page<Employee> pagedResult= employeeRepository.findAll(pageable);
-        return  employeeRepository.findAll(pageable);
-    
+        return employeeRepository.findAll(pageable);
     }
-    
+
     @PostMapping("/employees")
-    public Employee createEmployee(@RequestBody Employee employee){
+    public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
 
