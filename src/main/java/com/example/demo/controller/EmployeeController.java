@@ -10,8 +10,16 @@ package com.example.demo.controller;
  */
 import com.example.demo.entity.Employee;
 import com.example.demo.repository.EmployeeRepository;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
+import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -47,7 +55,6 @@ public class EmployeeController {
     public Page<Employee> employeesPageable(@RequestParam(value = "pageNumber", defaultValue = "0", required = false) Integer pageNumber,
             @RequestParam(value = "pageSize", defaultValue = "10", required = false) Integer pageSize) {
         Sort sort = Sort.by(Sort.Direction.DESC, "dateOfSupply");
-
         Pageable pageable = PageRequest.of(pageNumber, pageSize, sort);
 //        Page<Employee> pagedResult= employeeRepository.findAll(pageable);
         return employeeRepository.findAll(pageable);
@@ -56,6 +63,11 @@ public class EmployeeController {
     @PostMapping("/employees")
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    @GetMapping("/search")
+      public List<Employee> searchEmployees(@RequestParam String searchParam) {
+        return employeeRepository.findAllByName(searchParam);
     }
 
 }

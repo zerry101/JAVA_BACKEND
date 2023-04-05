@@ -39,8 +39,8 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "Name")
-    private String Name;
+    @Column(name = "name")
+    private String name;
 
     @Column(name = "Address", columnDefinition = "TEXT")
     private String Address;
@@ -83,9 +83,9 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-    public Employee(long id, String Name, String Address, String ContactNo, String TransportationMode, String VehicleNumber, Date dateOfSupply, String PlaceOfSupply, String ShippedTo, String productData,String GrandTotal) {
+    public Employee(long id, String name, String Address, String ContactNo, String TransportationMode, String VehicleNumber, Date dateOfSupply, String PlaceOfSupply, String ShippedTo, String productData,String GrandTotal) {
         this.id = id;
-        this.Name = Name;
+        this.name = name;
         this.Address = Address;
         this.ContactNo = ContactNo;
         this.TransportationMode = TransportationMode;
@@ -177,8 +177,8 @@ public class Employee {
         this.id = id;
     }
 
-    public void setName(String Name) {
-        this.Name = Name;
+    public void setname(String name) {
+        this.name = name;
     }
 
 //
@@ -192,8 +192,8 @@ public class Employee {
         return id;
     }
 
-    public String getName() {
-        return Name;
+    public String getname() {
+        return name;
     }
 
 //    public String getFirstname() {
@@ -202,6 +202,10 @@ public class Employee {
 //    public String getemailid() {
 //        return emailid;
 //    }
+
+    public void setId(String searchParam) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }
 
 //class productInfo{

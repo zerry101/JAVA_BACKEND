@@ -23,10 +23,29 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface EmployeeRepository extends  JpaRepository<Employee, Long>{
 
+//    public List<Employee> findAllByNameContainingIgnoreCase(String searchParam);
+
+//    public List<Employee> findAllByName(String searchParam);
+
+//    public List<Employee> findAllByEmployeeName(String searchParam);
+
+    public List<Employee> findAllByName(String searchParam);
+
+//    public List<Employee> findAllByname(String searchParam);
+
+//    public List<Employee> findAll(String searchParam);
+
+//    public List<Employee> findAllById(String searchParam);
+
+//    List<Employee> findAll(Example<Employee> example);
+
     /**
      *
      * @param pageable
      * @return
      */
 //    public List<Employee> findAllEmployees(Pageable pageable);
+    
+//        List<Employee> findBySearchParameterContainingIgnoreCase(String searchParameter);
+
 }
