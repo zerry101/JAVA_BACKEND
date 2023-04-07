@@ -24,7 +24,7 @@ import java.util.Date;
  *
  *
  */
-//interface productData{
+//interface productdata{
 //   String HSNString
 //   String DescString
 //   String
@@ -34,7 +34,6 @@ import java.util.Date;
 @Entity
 @Table(name = "employees")
 public class Employee {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -42,32 +41,32 @@ public class Employee {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "Address", columnDefinition = "TEXT")
-    private String Address;
+    @Column(name = "address", columnDefinition = "TEXT")
+    private String address;
 
-    @Column(name = "ContactNo")
-    private String ContactNo;
+    @Column(name = "contactno")
+    private String contactno;
 
-    @Column(name = "TransportationMode")
-    private String TransportationMode;
+    @Column(name = "transportationmode")
+    private String transportationmode;
 
-    @Column(name = "VehicleNumber")
-    private String VehicleNumber;
+    @Column(name = "vehiclenumber")
+    private String vehiclenumber;
 
-    @Column(name = "dateOfSupply",columnDefinition = "TEXT")
-    private Date dateOfSupply;
+    @Column(name = "dateofsupply",columnDefinition = "TEXT")
+    private Date dateofsupply;
 
-    @Column(name = "PlaceOfSupply", columnDefinition = "TEXT")
-    private String PlaceOfSupply;
+    @Column(name = "placeofsupply", columnDefinition = "TEXT")
+    private String placeofsupply;
 
-    @Column(name = "ShippedTo", columnDefinition = "TEXT")
-    private String ShippedTo;
+    @Column(name = "shippedto", columnDefinition = "TEXT")
+    private String shippedto;
 
-    @Column(name = "productData", columnDefinition = "TEXT")
-    private String productData;
+    @Column(name = "productdata", columnDefinition = "TEXT")
+    private String productdata;
 
-    @Column(name = "GrandTotal")
-    private String GrandTotal;
+    @Column(name = "grandtotal")
+    private String grandtotal;
 
 //    @Column(name = "first_name")
 //    private String firstname;
@@ -83,97 +82,97 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-    public Employee(long id, String name, String Address, String ContactNo, String TransportationMode, String VehicleNumber, Date dateOfSupply, String PlaceOfSupply, String ShippedTo, String productData,String GrandTotal) {
+    public Employee(long id, String name, String address, String contactno, String transportationmode, String vehiclenumber, Date dateofsupply, String placeofsupply, String shippedto, String productdata,String grandtotal) {
         this.id = id;
         this.name = name;
-        this.Address = Address;
-        this.ContactNo = ContactNo;
-        this.TransportationMode = TransportationMode;
-        this.VehicleNumber = VehicleNumber;
-        this.dateOfSupply = dateOfSupply;
-        this.PlaceOfSupply = PlaceOfSupply;
-        this.ShippedTo = ShippedTo;
-        this.productData = productData;
-        this.GrandTotal=GrandTotal;
+        this.address = address;
+        this.contactno = contactno;
+        this.transportationmode = transportationmode;
+        this.vehiclenumber = vehiclenumber;
+        this.dateofsupply = dateofsupply;
+        this.placeofsupply = placeofsupply;
+        this.shippedto = shippedto;
+        this.productdata = productdata;
+        this.grandtotal=grandtotal;
     }
 
 //    }
-    public String getAddress() {
-        return Address;
+    public String getaddress() {
+        return address;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public void setaddress(String address) {
+        this.address = address;
     }
 
-    public void setTransportationMode(String TransportationMode) {
-        this.TransportationMode = TransportationMode;
+    public void settransportationmode(String transportationmode) {
+        this.transportationmode = transportationmode;
     }
 
-    public void setContactNo(String ContactNo) {
-        this.ContactNo = ContactNo;
+    public void setcontactno(String contactno) {
+        this.contactno = contactno;
     }
 
-    public void setVehicleNumber(String VehicleNumber) {
-        this.VehicleNumber = VehicleNumber;
+    public void setvehiclenumber(String vehiclenumber) {
+        this.vehiclenumber = vehiclenumber;
     }
 
-    public void setdateOfSupply(Date dateOfSupply) {
-        this.dateOfSupply = dateOfSupply;
+    public void setdateofsupply(Date dateofsupply) {
+        this.dateofsupply = dateofsupply;
     }
 
-    public void setPlaceOfSupply(String PlaceOfSupply) {
-        this.PlaceOfSupply = PlaceOfSupply;
+    public void setplaceofsupply(String placeofsupply) {
+        this.placeofsupply = placeofsupply;
     }
 
-    public void setShippedTo(String ShippedTo) {
-        this.ShippedTo = ShippedTo;
+    public void setshippedto(String shippedto) {
+        this.shippedto = shippedto;
     }
 
-    public void setProductData(String productData) {
-        this.productData = productData;
+    public void setProductData(String productdata) {
+        this.productdata = productdata;
     }
 
-    public String getTransportationMode() {
+    public String gettransportationmode() {
 
-        return TransportationMode;
+        return transportationmode;
 
     }
 
-    public void setGrandTotal(String GrandTotal) {
-        this.GrandTotal = GrandTotal;
+    public void setgrandtotal(String grandtotal) {
+        this.grandtotal = grandtotal;
     }
 
-    public String getGrandTotal() {
-        return GrandTotal;
+    public String getgrandtotal() {
+        return grandtotal;
     }
 
-    public String getContactNo() {
-        return ContactNo;
+    public String getcontactno() {
+        return contactno;
     }
 
-    public String getVehicleNumber() {
-        return VehicleNumber;
+    public String getvehiclenumber() {
+        return vehiclenumber;
     }
 
-    public Date getdateOfSupply() {
+    public Date getdateofsupply() {
 //        Date =new SimpleDateFormat("dd/mm/yyyy").parse(DateOfSupply);
-        return dateOfSupply;
+        return dateofsupply;
     }
 
-    public String getPlaceOfSupply() {
-        return PlaceOfSupply;
+    public String getplaceofsupply() {
+        return placeofsupply;
     }
 
-    public String getShippedTo() {
-        return ShippedTo;
+    public String getshippedto() {
+        return shippedto;
     }
 
     public String getProductData() {
-        return productData;
+        return productdata;
     }
 
-    public void setId(long id) {
+    public void setid(long id) {
         this.id = id;
     }
 
@@ -188,7 +187,7 @@ public class Employee {
 //    public void setemailid(String emailid) {  
 //        this.emailid = emailid;
 //    }
-    public long getId() {
+    public long getid() {
         return id;
     }
 
@@ -203,7 +202,7 @@ public class Employee {
 //        return emailid;
 //    }
 
-    public void setId(String searchParam) {
+    public void setid(String searchParam) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
