@@ -66,7 +66,7 @@ public class Employee {
     private String productdata;
 
     @Column(name = "grandtotal")
-    private String grandtotal;
+    private double grandtotal;
 
 //    @Column(name = "first_name")
 //    private String firstname;
@@ -82,7 +82,7 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-    public Employee(long id, String name, String address, long contactno, String transportationmode, String vehiclenumber, Date dateofsupply, String placeofsupply, String shippedto, String productdata,String grandtotal) {
+    public Employee(long id, String name, String address, long contactno, String transportationmode, String vehiclenumber, Date dateofsupply, String placeofsupply, String shippedto, String productdata,double grandtotal) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -139,11 +139,11 @@ public class Employee {
 
     }
 
-    public void setgrandtotal(String grandtotal) {
+    public void setgrandtotal(double grandtotal) {
         this.grandtotal = grandtotal;
     }
 
-    public String getgrandtotal() {
+    public double getgrandtotal() {
         return grandtotal;
     }
 
