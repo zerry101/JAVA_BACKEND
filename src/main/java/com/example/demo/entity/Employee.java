@@ -45,7 +45,7 @@ public class Employee {
     private String address;
 
     @Column(name = "contactno")
-    private String contactno;
+    private long contactno;
 
     @Column(name = "transportationmode")
     private String transportationmode;
@@ -82,7 +82,7 @@ public class Employee {
 //        this.transportantionMode=transportantionMode,
 //        this.vehicleNumber=vehicleNumber,
 //        
-    public Employee(long id, String name, String address, String contactno, String transportationmode, String vehiclenumber, Date dateofsupply, String placeofsupply, String shippedto, String productdata,String grandtotal) {
+    public Employee(long id, String name, String address, long contactno, String transportationmode, String vehiclenumber, Date dateofsupply, String placeofsupply, String shippedto, String productdata,String grandtotal) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -109,7 +109,7 @@ public class Employee {
         this.transportationmode = transportationmode;
     }
 
-    public void setcontactno(String contactno) {
+    public void setcontactno(long contactno) {
         this.contactno = contactno;
     }
 
@@ -147,7 +147,7 @@ public class Employee {
         return grandtotal;
     }
 
-    public String getcontactno() {
+    public long getcontactno() {
         return contactno;
     }
 

@@ -71,22 +71,26 @@ public class EmployeeController {
     public Employee createEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
     }
-//
-//    @GetMapping("/search")
-//    
-//      public List<Employee> searchEmployees(@RequestParam String searchParam) {
-//        return employeeRepository.findAllByName(searchParam);
-//    }
 
-   @GetMapping("/search")
+    @GetMapping("/search")
     public List<Employee> searchEmployees(@RequestParam String query) {
         List<Employee> results = new ArrayList<>();
+//        
 
         if (query.matches("\\d+")) {
-            // Search by ID
-            long id = Long.parseLong(query);
-            Optional<Employee> employee = employeeRepository.findById(id);
-            employee.ifPresent(results::add);
+
+//            long contactno = Long.parseLong(query);
+//            Optional<Employee> employee = employeeRepository.findBycontactno(contactno);
+//            employee.ifPresent(results::add);
+            long contactno = Long.parseLong(query);
+            Optional<Employee> employee = employeeRepository.findBycontactno(contactno);
+            if (employee.isPresent()) {
+                results.add(employee.get());
+            } else {
+                results.addAll(employeeRepository.search(query));
+            }
+
+//            
         } else {
             // Search by all other fields
             results.addAll(employeeRepository.search(query));

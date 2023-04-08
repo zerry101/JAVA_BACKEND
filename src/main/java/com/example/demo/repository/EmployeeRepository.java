@@ -9,8 +9,10 @@ package com.example.demo.repository;
  * @author macon
  */
 import com.example.demo.entity.Employee;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import org.springframework.data.jpa.domain.Specification;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -52,5 +54,11 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long>, JpaSp
             + "e.grandtotal LIKE CONCAT('%', :query, '%') OR "
             + "LOWER(CONCAT(e.id, '')) LIKE LOWER(CONCAT('%', :query, '%'))")
     List<Employee> search(@Param("query") String query);
+
+    public Optional<Employee> findBycontactno(long contactno);
+
+
+    public List<Employee> findBycontactnoContaining(long contactno);
+
 
 }
