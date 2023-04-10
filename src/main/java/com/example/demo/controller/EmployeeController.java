@@ -32,6 +32,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -101,7 +102,7 @@ public class EmployeeController {
         return results;
     }
 
-    @PutMapping("/employees/{employeeId}")
+    @PutMapping("/employees/update/{employeeId}")
     public Optional<Employee> updateEmployee(@RequestBody Employee employee, @PathVariable("employeeId") long employeeId) {
 
         return employeeRepository.findById(employeeId).map(target -> {
@@ -121,5 +122,11 @@ public class EmployeeController {
             return target;
         });
 
+    }
+
+        @DeleteMapping("/employees/delete/{employeeId}")
+    public void deleteEmployee(@PathVariable("employeeId") long Id) {
+        Optional<Employee> employee = employeeRepository.findById(Id);
+        employeeRepository.delete(employee.get());
     }
 }
