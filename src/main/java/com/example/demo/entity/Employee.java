@@ -207,25 +207,3 @@ public class Employee {
     }
 }
 
-//class productInfo{
-//    public String Description;
-//
-//    public Number HSN;
-//    
-//    public  String Quantity;
-//    
-//    public Number Rate;
-//    
-//    public String Per;
-//    
-//    public Number  Amount; 
-//
-//    public productInfo(Number  Amount,String Description,Number HSN,String Quantity,Number Rate,String Per) {
-//        this.Amount=Amount;
-//        this.Description=Description;
-//        this.HSN=HSN;
-//        this.Quantity=Quantity;
-//        this.Rate=Rate;
-//        this.Per=Per;
-//    }
-

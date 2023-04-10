@@ -18,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.function.Function;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -34,6 +35,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -97,5 +99,27 @@ public class EmployeeController {
         }
 
         return results;
+    }
+
+    @PutMapping("/employees/{employeeId}")
+    public Optional<Employee> updateEmployee(@RequestBody Employee employee, @PathVariable("employeeId") long employeeId) {
+
+        return employeeRepository.findById(employeeId).map(target -> {
+            target.setid(employee.getid());
+            target.setname(employee.getname());
+            target.setProductData(employee.getProductData());
+            target.setaddress(employee.getaddress());
+            target.setcontactno(employee.getcontactno());
+            target.setdateofsupply(employee.getdateofsupply());
+            target.setshippedto(employee.getshippedto());
+            target.setplaceofsupply(employee.getplaceofsupply());
+            target.settransportationmode(employee.gettransportationmode());
+            target.setvehiclenumber(employee.getvehiclenumber());
+            target.setgrandtotal(employee.getgrandtotal());
+            employeeRepository.save(employee);
+
+            return target;
+        });
+
     }
 }
